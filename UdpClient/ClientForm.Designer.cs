@@ -1,4 +1,4 @@
-﻿namespace UdpServer
+﻿namespace UdpClient
 {
     partial class ClientForm
     {
@@ -163,6 +163,7 @@
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(433, 26);
             this.tbMessage.TabIndex = 8;
+            this.tbMessage.Text = "Test message";
             // 
             // label6
             // 
@@ -181,6 +182,7 @@
             this.btnSend.TabIndex = 9;
             this.btnSend.Text = "Отправить";
             this.btnSend.UseVisualStyleBackColor = true;
+            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
             // 
             // ClientForm
             // 
@@ -202,6 +204,7 @@
             this.MaximizeBox = false;
             this.Name = "ClientForm";
             this.Text = "UDP Client";
+            this.Load += new System.EventHandler(this.ClientForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
