@@ -5,7 +5,9 @@ VisualStudioVersion = 15.0.26430.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UDP", "UDP", "{09EE8689-06BE-4248-9185-196432C668A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpServer", "UdpServer\UdpServer.csproj", "{B127A2EE-A9DD-477C-88BB-634353381565}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpClient", "UdpClient\UdpClient.csproj", "{B127A2EE-A9DD-477C-88BB-634353381565}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdpServer", "UdpServer\UdpServer.csproj", "{0E62C90E-0F61-48B2-AC77-831562CD605A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,11 +19,16 @@ Global
 		{B127A2EE-A9DD-477C-88BB-634353381565}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B127A2EE-A9DD-477C-88BB-634353381565}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B127A2EE-A9DD-477C-88BB-634353381565}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E62C90E-0F61-48B2-AC77-831562CD605A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E62C90E-0F61-48B2-AC77-831562CD605A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E62C90E-0F61-48B2-AC77-831562CD605A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E62C90E-0F61-48B2-AC77-831562CD605A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{B127A2EE-A9DD-477C-88BB-634353381565} = {09EE8689-06BE-4248-9185-196432C668A7}
+		{0E62C90E-0F61-48B2-AC77-831562CD605A} = {09EE8689-06BE-4248-9185-196432C668A7}
 	EndGlobalSection
 EndGlobal
