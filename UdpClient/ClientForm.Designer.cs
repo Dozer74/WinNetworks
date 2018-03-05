@@ -69,7 +69,7 @@
             this.lbStatus.Location = new System.Drawing.Point(135, 86);
             this.lbStatus.Name = "lbStatus";
             this.lbStatus.Size = new System.Drawing.Size(114, 19);
-            this.lbStatus.TabIndex = 5;
+            this.lbStatus.TabIndex = 3;
             this.lbStatus.Text = "Подключение...";
             // 
             // tbIpAddress
@@ -78,7 +78,7 @@
             this.tbIpAddress.Name = "tbIpAddress";
             this.tbIpAddress.ReadOnly = true;
             this.tbIpAddress.Size = new System.Drawing.Size(154, 26);
-            this.tbIpAddress.TabIndex = 4;
+            this.tbIpAddress.TabIndex = 2;
             // 
             // tbPcName
             // 
@@ -86,7 +86,7 @@
             this.tbPcName.Name = "tbPcName";
             this.tbPcName.ReadOnly = true;
             this.tbPcName.Size = new System.Drawing.Size(154, 26);
-            this.tbPcName.TabIndex = 3;
+            this.tbPcName.TabIndex = 1;
             // 
             // label3
             // 
@@ -122,7 +122,7 @@
             this.lbMessages.Location = new System.Drawing.Point(323, 23);
             this.lbMessages.Name = "lbMessages";
             this.lbMessages.Size = new System.Drawing.Size(323, 194);
-            this.lbMessages.TabIndex = 1;
+            this.lbMessages.TabIndex = 4;
             // 
             // label4
             // 
@@ -162,7 +162,7 @@
             this.tbMessage.Location = new System.Drawing.Point(103, 261);
             this.tbMessage.Name = "tbMessage";
             this.tbMessage.Size = new System.Drawing.Size(433, 26);
-            this.tbMessage.TabIndex = 8;
+            this.tbMessage.TabIndex = 7;
             this.tbMessage.Text = "Test message";
             // 
             // label6
@@ -179,7 +179,7 @@
             this.btnSend.Location = new System.Drawing.Point(542, 260);
             this.btnSend.Name = "btnSend";
             this.btnSend.Size = new System.Drawing.Size(100, 27);
-            this.btnSend.TabIndex = 9;
+            this.btnSend.TabIndex = 8;
             this.btnSend.Text = "Отправить";
             this.btnSend.UseVisualStyleBackColor = true;
             this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
