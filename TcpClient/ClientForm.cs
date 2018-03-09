@@ -17,6 +17,8 @@ namespace TcpClient
         private Sockets.TcpClient tcpSender;
         private Sockets.TcpClient tcpReciever;
 
+        private bool properlyDisconnected;
+
 
         public ClientForm()
         {
@@ -46,19 +48,24 @@ namespace TcpClient
             {
                 tcpReciever = await tcpServer.AcceptTcpClientAsync();
                 var stream = tcpReciever.GetStream();
+                properlyDisconnected = false;
 
                 while (true)
                 {
                     var message = TcpUtils.ReadMessage(stream);
                     if (string.IsNullOrEmpty(message))
                     {
-                        Invoke(new Action(() => { 
-                            MessageBox.Show(this,
-                                "Соединение с сервером потеряно. Подключение будет закрыто",
-                                "Сервер отключен",
-                                MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            Disconnect();
-                        }));
+                        if (!properlyDisconnected)
+                        {
+                            Invoke(new Action(() =>
+                            {
+                                MessageBox.Show(this,
+                                    "Соединение с сервером потеряно. Подключение будет закрыто",
+                                    "Сервер отключен",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                Disconnect();
+                            }));
+                        }
                         break;
                     }
 
@@ -130,6 +137,8 @@ namespace TcpClient
 
         private void Disconnect()
         {
+            properlyDisconnected = true;
+
             try
             {
                 if (tcpSender.Connected)
