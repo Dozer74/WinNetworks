@@ -71,7 +71,7 @@ namespace UdpServer
 
         private async void SendMessage(IPEndPoint clientEndPoint, string message)
         {
-            var res = await IpUtils.SendMessage(clientEndPoint, ServerSenderPort, message);
+            var res = await UdpUtils.SendMessage(clientEndPoint, ServerSenderPort, message);
 
             if (res != "")
             {
