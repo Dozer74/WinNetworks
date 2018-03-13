@@ -12,8 +12,7 @@ namespace TcpServer
     {
         private const int ServerListenerPort = 8090;
         private const int ClientListenerPort = 8091;
-
-        private TcpListener tcpServer;
+        
         private TcpClient tcpClient;
 
         public ServerForm()
@@ -27,8 +26,7 @@ namespace TcpServer
             var localIp = IpUtils.GetLocalIp(tbPcName.Text);
             tbIpAddress.Text = localIp.ToString();
 
-            tcpServer = new TcpListener(localIp, ServerListenerPort);
-            tcpServer.Start();
+
 
             var thread = new Thread(InitListener);
             thread.Start();
@@ -38,6 +36,8 @@ namespace TcpServer
 
         private async void InitListener()
         {
+            var tcpServer = new TcpListener(IPAddress.Any, ServerListenerPort);
+            tcpServer.Start(); 
             while (true)
             {
                 var client = await tcpServer.AcceptTcpClientAsync();
