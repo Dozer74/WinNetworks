@@ -50,7 +50,7 @@ namespace UdpClient
         private async void SendMessage(IPAddress serverIp, string message)
         {
             var endPoint = new IPEndPoint(serverIp, ServerListenerPort);
-            var res = await IpUtils.SendMessage(endPoint, ClientSenderPort, message);
+            var res = await UdpUtils.SendMessage(endPoint, ClientSenderPort, message);
 
             if (res != "")
             {

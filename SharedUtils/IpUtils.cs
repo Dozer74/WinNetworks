@@ -67,6 +67,14 @@ namespace SharedUtils
             return true;
         }
 
+        public static bool ValidateParams(string serverIp, string serverName, out string errorMessage)
+        {
+            return ValidateParams(serverIp, serverName, "ignore", out errorMessage);
+        }
+    }
+
+    public static class UdpUtils
+    {
         public static async Task<string> SendMessage(IPEndPoint remoteEndPoint, int localPort, string message)
         {
             var updClient = new UdpClient(localPort);
@@ -78,7 +86,8 @@ namespace SharedUtils
             }
             catch (SocketException)
             {
-                return "Не удалось подключиться к удаленному серверу. Проверьте правильность ip-адреса или имени сервера.";
+                return
+                    "Не удалось подключиться к удаленному серверу. Проверьте правильность ip-адреса или имени сервера.";
             }
             catch (Exception ex)
             {
@@ -90,6 +99,45 @@ namespace SharedUtils
             }
 
             return "";
+        }
+    }
+
+    public static class TcpUtils
+    {
+        public static string ReadMessage(NetworkStream stream, int bufferSize = 256)
+        {
+            byte[] data = new byte[bufferSize];
+            var response = new StringBuilder();
+
+            try
+            {
+                do
+                {
+                    int bytes = stream.Read(data, 0, data.Length);
+                    response.Append(Encoding.UTF8.GetString(data, 0, bytes));
+                } while (stream.DataAvailable); // пока данные есть в потоке
+
+                return response.ToString();
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static bool SendMessage(string message, NetworkStream stream)
+        {
+            var bytes = Encoding.UTF8.GetBytes(message);
+
+            try
+            {
+                stream.Write(bytes, 0, bytes.Length);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }
